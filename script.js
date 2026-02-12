@@ -21,7 +21,7 @@
         const success = document.getElementById("success");
         
         // Repulsion parameters
-        const repelDistance = 100; // Distance at which repulsion starts
+        const repelDistance = 50; // Distance at which repulsion starts
         const repelStrength = 1.5; // How strongly it repels (0-1)
         
         let buttonX = null;
