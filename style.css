@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: "Quicksand", sans-serif;
+        }
+
+/* HEART CANVAS */
+        canvas{
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1;
+            pointer-events:none;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(255,175,189,0.8), rgba(255,195,160,0.8));
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .intro-card{
+            position:fixed;
+            inset:0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            z-index:5;
+        }
+        
+        
+        .notebook{
+            display:flex;
+            flex-direction:column;
+            align-items:flex-end;
+            width:min(85%,400px);
+            padding:40px 30px;
+            border-radius:26px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            border:1px solid rgba(255,255,255,0.35);
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.18),
+                0  0px 20px rgba(255,255,255,0.25);
+            animation:cardFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat{
+            0%{transform:translateY(0);}
+            50%{transform:translateY(-12px);}
+            100%{transform:translateY(0);}
+        }
+
+        @media (min-width: 768px) {
+            .notebook {
+                padding: 50px 40px;
+            }
+        }
+        
+        .line{
+            font-size:15px;
+            color:#ff4d6d;
+            line-height: 22.4px;
+            margin:18px 0;
+            padding-bottom:8px;
+            border-bottom:1.2px solid rgba(255,77,109,0.25);
+            opacity:0;
+            transform:translateY(20px);
+            animation:reveal .8s forwards;
+        }
+
+/* stagger */
+        .line:nth-child(1){animation-delay:1s;}
+        .line:nth-child(2){animation-delay:4s;}
+        .line:nth-child(3){animation-delay:7s;}
+        .line:nth-child(4){animation-delay:10s;}
+        .line:nth-child(5){animation-delay:13s;}
+
+        @keyframes reveal{
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        } 
+
+
+/* Continue button */
+        .continue-btn{
+            margin-top:40px;
+            padding:8px 16px;
+            border:none;
+            border-radius:999px;
+            background:#ff4d6d;
+            color:white;
+            font-size:12px;
+            cursor:pointer;
+            opacity:0;
+            transform:translateY(10px);
+            animation:fadeBtn 1.5s forwards;
+            animation-delay:15s;   /* Revisit */
+            transition:.3s;
+        }
+
+        .continue-btn:hover{
+            background: #b1354c;
+        }
+
+        @keyframes fadeBtn{
+                to{
+                    opacity:1;
+                    transform:translateY(0);
+            }
+        }
+
+
+
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       
+        .card {
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px 30px;
+            border-radius: 26px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 450px;
+            z-index: 2;
+        }
+      
+      @keyframes pop{
+            from{transform:scale(.7);opacity:0}
+            to{transform:scale(1);opacity:1}
+        }
+        
+         
+        @media (min-width: 768px) {
+            .card {
+                padding: 50px 40px;
+            }
+        }
+
+        #val-card{
+            animation: pop .5s ease;
+        }
+        
+        h3{
+            margin-top: 0;
+            color:#ff4d6d;
+            margin-bottom:10px;
+            font-weight: 500;
+        }
+        
+        p{
+            color:#666;
+            margin-bottom:30px;
+            font-weight: 400;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .buttons {
+                gap: 30px;
+            }
+        }
+
+        button {
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            button {
+                padding: 15px 40px;
+                font-size: 18px;
+            }
+        }
+
+        #yesButton {
+            background:#22c55e;
+            color:white;
+            animation:grow 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes grow{
+            from{transform:scale(1)}
+            to{transform:scale(1.18)}
+        }
+       
+
+        #yesButton:hover {
+            background-color: #16a34a;
+            transform: scale(1.05);
+        }
+
+        #noButton {
+            background-color: #ff4d6d;
+            color: white;
+            position: relative;
+            transition: all 0.1s ease-out;
+            
+        }
+
+        /* Placeholder to keep the space when No button becomes fixed */
+        #noButton.moving {
+            position: fixed;
+            z-index: 1000;
+        }
+
+        #noButton:hover {
+            background-color: #ff6b81;
+        }
+        
+        
+        
+        /* SUCCESS */
+        .success{
+            position:fixed;
+            inset:0;
+            background: transparent; /* subtle overlay */
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            opacity:0;
+            pointer-events:none;
+            transition:.6s;
+            z-index:6;
+        }
+
+        .success.show{
+            opacity:1;
+            pointer-events:auto;
+        }
+
+        .success-card{
+            position: relative;
+            width: min(92%, 500px);
+            padding: clamp(1.8rem, 4vw, 3rem);
+            border-radius: 26px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px); 
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            text-align:center;
+            color:white;
+            transform: scale(0);
+            animation:popSuccess 1s forwards,
+                      floatCard 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatCard {
+              0% { transform: translateY(0); }
+              50% { transform: translateY(-10px); } /* moves up 10px */
+              100% { transform: translateY(0); }
+        }
+
+        .text{
+            line-height: 25px;
+        }
+
+        .illustration-container {
+            margin-bottom: 10px; /* distance from text */
+        }
+
+        .success-image {
+            width:100%;
+            max-width: 340px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        @keyframes popSuccess{
+            from{transform: scale(0);}
+            to{transform: scale(1);}
+        }
+
+
+        .astra-footer{
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 14px;
+            font-size: 12px;
+            color: rgba(40,40,40,0.85);
+            letter-spacing: .3px;
+            z-index: 9999; /* VERY important */
+            pointer-events: auto;
+        }
+
+        .astra-footer a{
+            color:#ff4d6d;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .astra-footer a:hover{
+            text-decoration:underline;
+        }
