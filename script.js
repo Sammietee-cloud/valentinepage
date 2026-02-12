@@ -329,7 +329,7 @@ class Heart{
 }
 
 const hearts=[];
-for(let i=0;i<70;i++) hearts.push(new Heart());
+for(let i=0;i<100;i++) hearts.push(new Heart());
 
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
